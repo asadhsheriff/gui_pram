@@ -1,3 +1,3 @@
-var APP_VIEWS_PATH = "views/renderers/";
-var APP_HOST_PORT  = 12123;
-var APP_UTILS_PATH = "public/javascripts/utils";
+exports.APP_VIEWS_PATH = "views/renderers/";
+exports.APP_HOST_PORT  = 12123;
+exports.APP_UTILS_PATH = "public/javascripts/utils";

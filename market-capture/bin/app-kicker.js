@@ -7,16 +7,18 @@
 **/
 
 // initialize environment to kick start application
-var app = require('../boot-app');
+var app = require('./../boot-app');
 var debug = require('debug')('market-capture:server');
 var http = require('http');
+var path = require('path');
 
+// include local modules and constants
+var bootUtil = require(path.join(__dirname, '../public/javascripts/utils', '/boot-utils'));
+var consts = require(path.join(__dirname, '../public/javascripts/utils', '/constants-util'));
 
 // lets start the server after some validations
-
 // port validations
-var bootUtil = BootUtil.getBootUtil();
-var port = bootUtil.normalizePort(process.env.PORT || APP_HOST_PORT);
+var port = bootUtil.normalizePort(process.env.PORT || consts.APP_HOST_PORT);
 // set environment level app port
 app.set('port', port);
 
@@ -33,3 +35,6 @@ var server = http.createServer(app);
 server.listen(port);
 server.on('error', bootUtil.onError);
 server.on('listening', bootUtil.onListening);
+
+console.log("Initialized app start");
+console.log(server.address());
