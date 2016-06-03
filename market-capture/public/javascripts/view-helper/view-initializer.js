@@ -16,6 +16,7 @@ router.get('/', function(req, res, next) {
 // intializing welcome page
 router.get('/welcome', function(req, res, next) {
 	console.log('Welcome page..');
+	//res.sendFile(path.join(__dirname, '../../static-renderer/html-renderar/', 'index.html'));
 	res.render(path.join(__dirname, '../../static-renderer', 'home-welcome'));
 	next();
 });

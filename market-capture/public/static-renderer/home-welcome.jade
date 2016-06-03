@@ -1,8 +1,263 @@
-pageTitle="Welcome World"
 doctype html
-html(lang="en")
-	head
-		title=pageTitle
-	
-	body
-		p.Greet people!
+//
+  Hyperspace by HTML5 UP
+  html5up.net | @n33co
+  Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+html
+  head
+    title Capsulle
+    | &#x9;&#x9;
+    meta(charset='utf-8')
+    | &#x9;&#x9;
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    //if lte IE 8
+      script(src='assets/js/ie/html5shiv.js')
+    | &#x9;&#x9;
+    link(rel='stylesheet', href='./assets/css/main.css')
+    //if lte IE 9
+      link(rel='stylesheet', href='assets/css/ie9.css')
+    //if lte IE 8
+      link(rel='stylesheet', href='assets/css/ie8.css')
+  | &#x9;
+  body
+    // Sidebar
+    section#sidebar
+      .inner
+        nav
+          ul
+            li
+              a(href='#intro') Welcome
+            | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+            li
+              a(href='#one') What we do
+            | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+            li
+              a(href='#two') Why choose us
+            | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+            li
+              a(href='#three') Get in touch
+    // Wrapper
+    #wrapper
+      // Intro
+      section#intro.wrapper.style1.fullscreen.fade-up
+        .inner
+          h1 Capsulle
+          | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+          p
+            | A place where you can find promotional offers that you need. We are calling these promotional offers, &apos;Capsulle&apos;
+          | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+          | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+          ul.actions
+            li
+              a.button.scrolly(href='#one') Learn more
+      // One
+      section#one.wrapper.style2.spotlights
+        section
+          a.image(href='#')
+            img(src='images/pic01.jpg', alt='', data-position='center center')
+          | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+          .content
+            .inner
+              h2 What is a Capsulle?
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+              p
+                | Capsulle is an intelligent promotional offer which you can save on your mobile phone with a tap, share it with your friends with a swipe.
+              //
+                <ul class="actions">
+                <li><a href="demo.html" class="button">Learn More</a></li>
+                </ul>
+        | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+        section
+          a.image(href='#')
+            img(src='images/pic02.jpg', alt='', data-position='top center')
+          | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+          .content
+            .inner
+              h2 Why Capsulle? Why not Coupons?
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+              p
+                | They show up on your mobile phone when you needed it the most.  One good example is they show up at your breakfast, lunch and dinner times to let you know about a deal available in your favorite nearby restaurant. 
+                br
+                |   With a single tap, you can find your friends using the Capsulle and also connect to a community sharing Capsulles. You don&apos;t have to take the pain of deleting the expired Capsulle, it just won&apos;t show up after expiration.
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+              ul.actions
+                li
+                  a.button(href='demo.html') learn more
+        //
+          <a href="#" class="image"><img src="images/pic03.jpg" alt="" data-position="25% 25%" /></a>
+          <div class="content">
+          <div class="inner">
+          <h2>Ultricies aliquam</h2>
+          <p>Phasellus convallis elit id ullamcorper pulvinar. Duis aliquam turpis mauris, eu ultricies erat malesuada quis. Aliquam dapibus.</p>
+          <ul class="actions">
+          <li><a href="#" class="button">Learn more</a></li>
+          </ul>
+          </div>
+          </div>
+          </section>
+      // Two
+      section#two.wrapper.style3.fade-up
+        .inner
+          h2 Why choose us
+          | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+          p
+            | We want to be that some one who cares you and present you with only the offers that you wanted to see and use.
+          | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+          .features
+            section
+              span.icon.major.fa-desktop
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+              h3 Context Specific
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+              p Capsulles show up when you need them the most
+            | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+            section
+              span.icon.major.fa-chain
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+              h3 Easy to Discover
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+              p Capsulles are easy to find 
+            | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+            section
+              span.icon.major.fa-chain
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+              h3 Easy to save
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+              p
+                | Capsulles are easy to save and use even when the mobile phone is not connected to the internet
+            | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+            section
+              span.icon.major.fa-chain
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+              h3 Easy to Share
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+              p With a swipe, you can share Capsulles to your friends and mobile contacts .
+            | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+            section
+              span.icon.major.fa-diamond
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+              h3 Easy access to the product
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+              p
+                | With a push of a button, you can access the information of the product that is on the offer
+            | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+            section
+              span.icon.major.fa-code
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+              h3 Easy Tips
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+              p
+                | With the push of a button, you can ask questions on the offer to a community sharing Capsulles
+            | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+            | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+            section
+              span.icon.major.fa-diamond
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+              h3 Easy To Redeem
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+              p They are QR Code Enabled, hence it is easy to redeem
+            | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+            | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+            section
+              span.icon.major.fa-diamond
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+              h3 Less Clutter
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+              p They auto delete on offer expiration
+          //
+            <ul class="actions">
+            <li><a href="#" class="button">Learn more</a></li>
+            </ul>
+      // Three
+      section#three.wrapper.style1.fade-up
+        .inner
+          h2 Get in touch
+          | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+          p Please write to us at
+          | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+          .split.style1
+            section
+              form(method='post', action='#')
+                .field.half.first
+                  label(for='name') Name
+                  | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                  input#name(type='text', name='name')
+                | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                .field.half
+                  label(for='email') Email
+                  | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                  input#email(type='text', name='email')
+                | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                .field
+                  label(for='message') Message
+                  | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                  textarea#message(name='message', rows='5')
+                | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                ul.actions
+                  li
+                    a.button.submit(href='') Send Message
+            | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+            section
+              ul.contact
+                li
+                  h3 Address
+                  | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                  span
+                    | 313 Piedmont
+                    br
+                    | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Irvine, CA 92620
+                    br
+                    | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;USA
+                | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                li
+                  h3 Email
+                  | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                  a(href='#') admincapsulle@gmail.com
+                | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                li
+                  h3 Phone
+                  | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                  span (657) 858-1136
+                | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                li
+                  h3 Social
+                  | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                  ul.icons
+                    li
+                      a.fa-twitter(href='#')
+                        span.label Twitter
+                    | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                    li
+                      a.fa-facebook(href='#')
+                        span.label Facebook
+                    | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                    li
+                      a.fa-github(href='#')
+                        span.label GitHub
+                    | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                    li
+                      a.fa-instagram(href='#')
+                        span.label Instagram
+                    | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                    li
+                      a.fa-linkedin(href='#')
+                        span.label LinkedIn
+    // Footer
+    footer#footer.wrapper.style1-alt
+      .inner
+        ul.menu
+          li &copy; Capsulle. All rights reserved.
+    // Scripts
+    script(src='./assets/js/jquery.min.js')
+    | &#x9;&#x9;&#x9;
+    script(src='./assets/js/jquery.scrollex.min.js')
+    | &#x9;&#x9;&#x9;
+    script(src='./assets/js/jquery.scrolly.min.js')
+    | &#x9;&#x9;&#x9;
+    script(src='./assets/js/skel.min.js')
+    | &#x9;&#x9;&#x9;
+    script(src='./assets/js/util.js')
+    //if lte IE 8
+      script(src='./assets/js/ie/respond.min.js')
+    | &#x9;&#x9;&#x9;
+    script(src='./assets/js/main.js')

@@ -2,11 +2,11 @@ module.exports = {
 
 	normalizePort : function(portNo) {
 		var port = parseInt(portNo, 10);
-		if (isNaN(portNo)) { 
-			return val;
+		if (isNaN(port)) { 
+			return false;
 		}
 		
-		return false;
+		return port;
 	},
 
 	onError : function(error) {
