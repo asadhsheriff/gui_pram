@@ -34,8 +34,11 @@ app.use(express.static((path.join(__dirname, constants.APP_VIEWS_PATH))));
 //app.use('/', path.join(__dirname, constants.APP_UTILS_PATH));
 
 var welcomeInitilizer = require('./public/javascripts/view-helper/view-initializer');
+// register page initializations
+var registerInitializer = require('./public/javascripts/view-helper/register-merchant');
 // set page links
 app.use(welcomeInitilizer);
+app.use('/register',  registerInitializer);
 console.log('Initilized boot app');
 
 

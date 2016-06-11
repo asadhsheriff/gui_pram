@@ -24,6 +24,7 @@ router.get('/welcome', function(req, res, next) {
 // for login post handler
 router.post('/welcome', function(req, res, next) {
 	// get parameters from req params and process the authentication
+	console.log("post call from welcome");
 });
 
 console.log('Initialized view welcome');
