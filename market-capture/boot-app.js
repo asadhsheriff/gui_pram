@@ -36,6 +36,10 @@ app.use(express.static((path.join(__dirname, constants.APP_VIEWS_PATH))));
 var welcomeInitilizer = require('./public/javascripts/view-helper/view-initializer');
 // register page initializations
 var registerInitializer = require('./public/javascripts/view-helper/register-merchant');
+
+var dbConnector = require('./public/javascripts/utils/database-connector');
+var connector = dbConnector.getClientConnector();
+console.log(connector);
 // set page links
 app.use(welcomeInitilizer);
 app.use('/register',  registerInitializer);
