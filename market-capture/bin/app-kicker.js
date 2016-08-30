@@ -13,8 +13,8 @@ var http = require('http');
 var path = require('path');
 
 // include local modules and constants
-var bootUtil = require(path.join(__dirname, '../public/javascripts/utils', '/boot-utils'));
-var consts = require(path.join(__dirname, '../public/javascripts/utils', '/constants-util'));
+var bootUtil = require(path.join(__dirname, '../utils', '/boot-utils'));
+var consts = require(path.join(__dirname, '../utils', '/constants-util'));
 
 // lets start the server after some validations
 // port validations

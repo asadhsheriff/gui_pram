@@ -16,7 +16,7 @@ var util = require('util');
 var path = require('path');
 var nodemailer = require('./../utils/mailer-util');
 var databaseHandler = require('./../utils/database-connector');
-var loggerConf = require(path.join(__dirname, '../utils/context-utils/', 'logger-conf'));
+var loggerConf = require(path.join(__dirname, '/../utils/context-utils/', 'logger-conf'));
 var logger = loggerConf.getLogger();
 var connector = databaseHandler.getClientConnector();
 console.log('connected to db');
@@ -26,7 +26,7 @@ var async = require('async');
 // intialize home page renderer and their actions accordingly
 router.get('/', function(req, res, next) {
 	// take it to the welcome home page
-	res.render(path.join(__dirname, '../../static-renderer', 'register-merchant'));
+	res.render(path.join(__dirname, '/../views/base-views/', 'register-merchant'));
 	console.log('Welcome to register page');
 	next();
 });

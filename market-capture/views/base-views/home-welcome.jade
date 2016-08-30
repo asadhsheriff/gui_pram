@@ -10,8 +10,7 @@ html
     meta(name='viewport', content='width=device-width, initial-scale=1')
     //
       if lte IE 8script(src='assets/js/ie/html5shiv.js')
-    link(rel='stylesheet', href='static-renderer/assets/css/main.css')
-    link(rel='stylesheet', href='static-renderer/app-css/register-page.css')
+    link(rel='stylesheet', href='css/main.css')
     //
       if lte IE 9link(rel='stylesheet', href='assets/css/ie9.css')
     //
@@ -23,13 +22,15 @@ html
         nav
           ul
             li
-              a(href="#intro" onclick="window.location='../welcome'") Home
-            //li
-            //  a(href='#intro') Newbiee
+              a(href='#intro') Welcome
             li
-              a(href="#one") Newbiee
+              a(href='#one') What we do
             li
-              a(href='#two') Login
+              a(href='#two') Why choose us
+            li
+              a(href='#three') Get in touch
+            li
+              a(href='#four', onclick="window.location='../register'") Register
     // Wrapper
     #wrapper
       // Intro
@@ -44,30 +45,20 @@ html
       // One
       section#one.wrapper.style2.spotlights
         section
-          //a.image(href='#')
-          //  img(src='images/pic01.jpg', alt='', data-position='center center')
+          a.image(href='#')
+            img(src='img/pic01.jpg', alt='', data-position='center center')
           .content
             .inner
-              form#register-for-add-in(method='post',  enctype='multipart/form-data')
-                fieldset
-                  span Give us your Capsulle name
-                  span(style='color: red;') * 
-                  input(type='text', detail_name='get-in-touch', name='name-of-register', size="25")
-                  span Give us your Capsulle name
-                  span(style='color: red;') * 
-                  input(type='text', detail_name='get-in-touch', name='name-of-shop', size="35")
-                  span Give your phone # to contact you
-                  span(style='color: red;') * 
-                  input(type='text', detail_name='get-in-touch', onkeypress='return event.charCode >= 48 && event.charCode <= 57', maxlength='10', name='phone-of-shop', size="18")
-                  span We will give you an Update @
-                  span(style='color: red;') * 
-                  input(type='text', detail_name='get-in-touch', required, name='email-of-shop', size="19")
-                  div(style='margin-top:10px')
-                    input(type="submit" detail_name="get-in-touch-button")
-
+              h2 What is a Capsulle?
+              p
+                | Capsulle is an intelligent promotional offer which you can save on your mobile phone with a tap, share it with your friends with a swipe.
+              //
+                <ul class="actions">
+                <li><a href="demo.html" class="button">Learn More</a></li>
+                </ul>
         section
           a.image(href='#')
-            img(src='images/pic02.jpg', alt='', data-position='top center')
+            img(src='img/pic02.jpg', alt='', data-position='top center')
           .content
             .inner
               h2 Why Capsulle? Why not Coupons?
@@ -204,11 +195,11 @@ html
         ul.menu
           li © Capsulle. All rights reserved.
     // Scripts
-    script(src='static-renderer/assets/js/jquery.min.js')
-    script(src='static-renderer/assets/js/jquery.scrollex.min.js')
-    script(src='static-renderer/assets/js/jquery.scrolly.min.js')
-    script(src='static-renderer/assets/js/skel.min.js')
-    script(src='static-renderer/assets/js/util.js')
+    script(src='js/jquery.min.js')
+    script(src='js/jquery.scrollex.min.js')
+    script(src='js/jquery.scrolly.min.js')
+    script(src='js/skel.min.js')
+    script(src='js/util.js')
     //
       if lte IE 8script(src='./assets/js/ie/respond.min.js')
-    script(src='static-renderer/assets/js/main.js')
+    script(src='js/main.js')

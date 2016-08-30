@@ -6,7 +6,7 @@
 // Express into module
 var express = require('express');
 var path = require('path');
-var constants = require(path.join(__dirname, '/public/javascripts/utils/', 'constants-util'));
+var constants = require(path.join(__dirname, '/utils/', 'constants-util'));
 
 var favicon = require('serve-favicon');
 var logger = require('morgan');
@@ -27,17 +27,17 @@ app.set('views', path.join(__dirname, constants.APP_VIEWS_PATH));
 // util js to the app environment
 app.set('utils', path.join(__dirname, constants.APP_UTILS_PATH));
 // setup assets/statics to the app environment
-app.use(express.static((path.join(__dirname, constants.APP_VIEWS_PATH))));
+app.use(express.static((path.join(__dirname, constants.APP_PUBLIC_PATH))));
 // add views to app usage
 //app.use('views', path.join(__dirname, constants.APP_VIEWS_PATH));
 // add utils to the app usage
 //app.use('/', path.join(__dirname, constants.APP_UTILS_PATH));
 
-var welcomeInitilizer = require('./public/javascripts/view-helper/view-initializer');
+var welcomeInitilizer = require('./routes/view-initializer');
 // register page initializations
-var registerInitializer = require('./public/javascripts/view-helper/register-merchant');
+var registerInitializer = require('./routes/register-merchant');
 
-var dbConnector = require('./public/javascripts/utils/database-connector');
+var dbConnector = require('./utils/database-connector');
 var connector = dbConnector.getClientConnector();
 console.log(connector);
 // set page links
