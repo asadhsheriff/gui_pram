@@ -7,16 +7,12 @@ var path = require('path');
 
 // intialize home page renderer and their actions accordingly
 router.get('/', function(req, res, next) {
-	// take it to the welcome home page
-	console.log('Redirecting to home dir');
 	res.redirect('welcome');
 	next();
 });
 
 // intializing welcome page
 router.get('/welcome', function(req, res, next) {
-	console.log('Welcome page..');
-	//res.sendFile(path.join(__dirname, '../../static-renderer/html-renderar/', 'index.html'));
 	res.render(path.join(__dirname, '/../views/base-views/', 'home-welcome'));
 	next();
 });
@@ -27,6 +23,4 @@ router.post('/welcome', function(req, res, next) {
 	console.log("post call from welcome");
 });
 
-console.log('Initialized view welcome');
-// export the router
 module.exports = router;

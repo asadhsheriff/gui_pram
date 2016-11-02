@@ -3,3 +3,7 @@ input[detail_name='get-in-touch'] {
 	height: 28px;
 }
 
+.strong-warning {
+	color : #c12f2f;
+	font : inherit;
+}

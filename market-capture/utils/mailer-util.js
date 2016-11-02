@@ -59,17 +59,21 @@ function constructMessageContent(fields, type) {
 function validateData(fields, type) {
 	if (!fields)
 		return 'Data cannot be empty to proceed';
-	if(!fields['name-of-register']) {
+	if(!fields['first-name']) {
 		// ideally the code should not come here
-		return 'Name of the merchant cannot be empty';
+		return 'First name cannot be empty';
 	}
-	if(!fields['name-of-shop']) {
+	if(!fields['merchant-name']) {
 		// ideally the code should not come here
-		return 'Name of the merchant shop cannot be empty';
+		return 'Merchant shop name cannot be empty';
 	}
-	if(!fields['email-of-shop']) {
+	if(!fields['email-id']) {
 		// ideally the code should not come here
-		return 'Phone number of the shop cannot be empty';
+		return 'Email id cannot be empty';
+	}
+	if(!fields['phone-number']) {
+		// ideally the code should not come here
+		return 'phone number cannot be empty';
 	}
 
 	if(type == 'WELCOME' && !fields['hash-key']) {
@@ -121,12 +125,19 @@ function constructMailBody(validatedContents, type) {
 		var baseMessageBody = MAIL_BODY;
 
 		baseMessageBody.from = 'capsullehelpcenter@no-reply.com';
-		baseMessageBody.to = validatedContents['email-of-shop'];
-		baseMessageBody.text = 'Hello ' + validatedContents['name-of-register'] + ',';
-		baseMessageBody.html = '<p>Welcome to the group <span>Capsulle</span>,</p><br>'
+		baseMessageBody.to = validatedContents['email-id'];
+		baseMessageBody.text = 'Hello ' + validatedContents['first-name'] + ',';
+		baseMessageBody.html = '<p> Welcome to the group <span>Capsulle</span>,</p><br>'
 							+ '<p>As per our terms and conditions please click on this <a href="'+ getUrl(validatedContents, type) +'">link</a> to validate'
-							+ 'proceed with actual registration, to proceed with uploading coupons<p>';
-		baseMessageBody.subject = 'Welcome ' + validatedContents['name-of-shop']; 
+							+ ' and proceed with actual registration. Once the registration is done,'
+							+ ' you could proceed with uploading coupons on your account.<p>'
+							+ '<p></p>'
+							+ '<p></p>'
+							+ '<p>Regards, </p>'
+							+ '<p>Capsulle</p>'
+							+ '<footer> <p>Capsulle, LLC.,</p>'
+							+ '<p> For any further queries write us on capsullehelpcenter@gmail.com.</p><footer>';
+		baseMessageBody.subject = 'Capsulles | Welcome ' + validatedContents['merchant-name']; 
 
 		return baseMessageBody;
 	}
@@ -137,9 +148,9 @@ function getUrl(fields, type) {
 	var url = BASE_URL;
 	if (type == 'WELCOME') {
 		var url = BASE_URL;
-		url += '/registration_process';
+		url += '/registrationprocess';
 		url += '?v=' + fields['hash-key'] + '&';
-		url += 'g=' + fields['email-of-shop'] + '&';
+		url += 'g=' + fields['email-id'] + '&';
 		url += 'x=' + (new Date().getTime());
 	}
 	// if it does not satisfy the condition then it will return home url :D

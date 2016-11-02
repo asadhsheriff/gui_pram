@@ -12,6 +12,9 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var expressValidator = require('express-validator');
+var session = require('express-session');
+var flash = require('connect-flash');
 
 // set up express 
 var app = express();
@@ -19,6 +22,23 @@ var app = express();
 /**
 set up environment for the application
 **/
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: false}));
+// activate sessions before flash
+app.use(session({
+	secret: '21ffsa*',
+	saveUninitialized : true,
+	resave: true
+}));
+app.use(cookieParser());
+
+app.use(flash());
+
+// default flash message configs
+app.use(function(req, res, next) {
+	res.locals.errorMessage = req.flash('errorMessage');
+	next();
+});
 
 // set up the view engine to be used here
 app.set('view engine', 'jade');
@@ -28,10 +48,23 @@ app.set('views', path.join(__dirname, constants.APP_VIEWS_PATH));
 app.set('utils', path.join(__dirname, constants.APP_UTILS_PATH));
 // setup assets/statics to the app environment
 app.use(express.static((path.join(__dirname, constants.APP_PUBLIC_PATH))));
-// add views to app usage
-//app.use('views', path.join(__dirname, constants.APP_VIEWS_PATH));
-// add utils to the app usage
-//app.use('/', path.join(__dirname, constants.APP_UTILS_PATH));
+
+app.use(expressValidator({
+  errorFormatter: function(param, msg, value) {
+      var namespace = param.split('.')
+      , root    = namespace.shift()
+      , formParam = root;
+
+    while(namespace.length) {
+      formParam += '[' + namespace.shift() + ']';
+    }
+    return {
+      param : formParam,
+      msg   : msg,
+      value : value
+    };
+  }
+}));
 
 var welcomeInitilizer = require('./routes/view-initializer');
 // register page initializations
@@ -39,12 +72,9 @@ var registerInitializer = require('./routes/register-merchant');
 
 var dbConnector = require('./utils/database-connector');
 var connector = dbConnector.getClientConnector();
-console.log(connector);
 // set page links
 app.use(welcomeInitilizer);
 app.use('/register',  registerInitializer);
-console.log('Initilized boot app');
-
 
 // export this to the application kick start js
 module.exports = app;

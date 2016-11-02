@@ -1,0 +1,72 @@
+doctype html
+//
+  Hyperspace by HTML5 UP
+  html5up.net | @n33co
+  Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+html
+  head
+    title Capsulle
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    //
+      if lte IE 8script(src='assets/js/ie/html5shiv.js')
+    link(rel='stylesheet', href='css/main.css')
+    link(rel='stylesheet', href='css/app-css/register-page.css')
+    //link(rel='stylesheet', href='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')
+    //script(src='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
+
+    //
+      if lte IE 9link(rel='stylesheet', href='assets/css/ie9.css')
+    //
+      if lte IE 8link(rel='stylesheet', href='assets/css/ie8.css')
+  body
+    // Sidebar
+    section#sidebar
+      .inner
+        nav
+          ul
+            //li
+            //  a(href='#intro') Newbiee
+            li
+              a(href="#intro") Registration
+            li
+              a(href="#three" onclick="window.location='../welcome'") Home
+      section#intro.wrapper.style2.fullscreen.spotlights
+        section
+          a.image(href='#')
+            img(src='img/pic01.jpg', alt='', data-position='center center')
+          .content
+            .inner
+              section
+                form(method='post')
+                  fieldset
+                    div
+                      span Password
+                      span(style='color: red;') * 
+                      input(type='text', detail_name='get-in-touch', placeholder='Password' ,name='pass-first', size="40")
+                    div
+                      span Confirm Password
+                      input(type='text', detail_name='get-in-touch', placeholder='Confirm Password', name='pass-confirm-second', size="40")
+                    div(style='margin-top:10px')
+                      input(type="submit" detail_name="get-in-touch-button")
+                div#message_placholder
+                  div.alert.alert-danger
+                    if errorMessage && errorMessage.length
+                      ul
+                        each item in errorMessage
+                          li(style='color: white')
+                            strong.strong-warning  #{item.msg}
+    // Footer
+    footer#footer.wrapper.style1-alt
+      .inner
+        ul.menu
+          li © Capsulle. All rights reserved.
+    // Scripts
+    script(src='js/jquery.min.js')
+    script(src='js/jquery.scrollex.min.js')
+    script(src='js/jquery.scrolly.min.js')
+    script(src='js/skel.min.js')
+    script(src='js/util.js')
+    //
+      if lte IE 8script(src='./assets/js/ie/respond.min.js')
+    script(src='js/main.js')

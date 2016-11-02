@@ -17,7 +17,7 @@ can tbe choosen randomly for connection to the cluster
 TODO later on use LB to load balancing
 **/ 
 var connectorPools = {
-	"connector1": {
+	"user_space": {
 		"connectorConf" : {},
 		"connector" : null
 		},
@@ -48,18 +48,20 @@ function initializeConnection() {
 }
 
 function connectionTest() {
-	/* const queryStr = "select * from system_auth.roles;";
-	clientConnector.execute(queryStr, function (err, result) {
-		console.log(result);
-		//console.log(user);
-		console.log(err);
-	}); */
+	clientConnector.execute('select * from user_space.user_primary_info limit 1', 
+		function(err, result) {
+			if (err) {
+				logger.error(err);
+				return;
+			}
+			console.log(result);
+	});
 }
  
 module.exports = {
-	getClientConnector : function() {
+	getClientConnector : function(schema_space) {
 		if (!clientConnector) 
 			initializeConnection();
 		return clientConnector;
-	}
+	},
 };

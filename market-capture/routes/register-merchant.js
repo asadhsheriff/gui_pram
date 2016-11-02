@@ -9,6 +9,8 @@ imports required
 var express = require('express');
 var router = express.Router();
 // packages required for reading the form data for registration
+
+// packages required for reading the form data for registration
 var fs = require('fs');
 var formidable = require('formidable');
 var util = require('util');
@@ -19,9 +21,9 @@ var databaseHandler = require('./../utils/database-connector');
 var loggerConf = require(path.join(__dirname, '/../utils/context-utils/', 'logger-conf'));
 var logger = loggerConf.getLogger();
 var connector = databaseHandler.getClientConnector();
-console.log('connected to db');
 var keyGen = require('./../utils/key-generator');
 var async = require('async');
+var userModel = require('../models/user-model');
 
 // intialize home page renderer and their actions accordingly
 router.get('/', function(req, res, next) {
@@ -32,9 +34,18 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/', function(req, res, next) {
-	console.log('doing a post call for new merchant register');
-	processNewRegisterMerchantRequest(req, res);
-	next();
+	// validate input data
+	var errors = validateFormData(req);
+	if (!errors) {
+		processNewRegisterMerchantRequest(req, res);
+	} else {
+		req.flash('errorMessage', errors);
+		res.render(path.join(__dirname, '/../views/base-views/', 'register-merchant'), {
+			errorMessage : req.flash('errorMessage')
+		});		
+	}
+	//next();
+	// redirect to home page once it is done
 });
 
 function processNewRegisterMerchantRequest(req, res) {
@@ -42,61 +53,61 @@ function processNewRegisterMerchantRequest(req, res) {
 	var formFields;
 	async.waterfall([
 		function getFormData(callback) {
-            var form = new formidable.IncomingForm();
-            // read the form and get it as fields
-            form.parse(req, function (err, fields, files) {
-                // check if any exception occured
-                if (err) {
-                    return callback(err, null);
-                }
-                // validate the given fields 
-                var validatedResult = validateFormData(fields);
-                if (validatedResult) {
-                    return callback(validatedResult, null);
-                }
-                callback(null, fields);
-            });
+			var formFields = {};
+			formFields['email-id'] = req.body['email-id'];
+			formFields['first-name'] = req.body['first-name'];
+			formFields['last-name'] = req.body['last-name'];
+			formFields['merchant-name'] = req.body['merchant-name'];
+			formFields['phone-number'] = req.body['phone-number'];
+            callback(null, formFields);
         },
-        function checkIfUserExist(fields, callback) {
-            var userName = fields["email-of-shop"];
+        function getUser(fields, callback) {
+            var userName = fields["email-id"];
             formFields = fields;
-            connector.execute("select * from user_space.user_primary_info where email_id = ? "
-                , [userName], function(err, result) {
-                    console.log('Executed');
-
-                    if (err) { 
-                        console.log(err);
-                        // TODO log the error
-                        return callback(err, null);
+            console.log(fields);
+            userModel.getUserAsync(userName, callback);
+        }, function filterOutUser(users, callback) {
+        	var isUserExist = false;
+        	if (users && users.rowLength) {
+        		for(var iter = 0; iter< users.rowLength; iter++) {
+                    if (users.rows[iter]["user_active"]) {
+                        isUserExist = true;
                     }
-                var isUserExist = false;
-
-                if (result.rowLength) {
-                    for(var iter = 0; iter< result.rowLength; iter++) {
-                        if (result.rows[iter]["user_active"]) {
-                            isUserExist = true;
-                        }
-                    }
-                }
-
-                if ( isUserExist) {
-                    return callback('User already exist!', null);
-                }
-                return callback(null, userName);
-            });
-        },function generateUniqueHashForUser(userName, callback) {
-            getHashKey(userName, callback);
-        }, function sendMail(hashKey, callback) {
+            	}
+        	}
+        	if (isUserExist) {
+        		return callback('User already exist', null);
+        	} else {
+        		return callback(null, formFields['email-id']);
+        	}
+        },
+        function generateUniqueHashForUser(userName, callback) {
+            return getHashKey(userName, callback);
+        }, function createNewUser(hashKey, callback) {
         	formFields['hash-key'] = hashKey;
-        	nodemailer.sendWelcomeMail(formFields, callback);
+        	return userModel.createNewUser(formFields, callback);
+        }, function sendMail(isUserCreationSuccessful, callback) {
+        	if (isUserCreationSuccessful) {
+        		return nodemailer.sendWelcomeMail(formFields, callback);
+        	}
+        	return callback('Unable to create user', null); 
         }], 
 		function(err, results) {
 			if (err) {
 				console.error("Error occured");
 				console.error(err);
+				req.flash('errorMessage', {
+					msg : err
+				});
+				//console.log(req.flash('errorMessage'));
+				res.render(path.join(__dirname, '/../views/base-views/', 'register-merchant'), {
+					errorMessage : req.flash('errorMessage')
+				});
 				return;
 			} 
 			console.log(results);
+			// flash the success message
+			res.redirect('/');
 			return;
 		});
 }
@@ -106,19 +117,18 @@ function makePrimaryEntryToDb(fields, callback) {
 
 }
 
-function validateFormData(fields) {
-	// TODO validate these fields at javascript level/ this should be second check to handle the data
-	if(!fields['name-of-register']) {
-		// ideally the code should not come here
-		return 'Name of the merchant cannot be empty';
-	}
-	if(!fields['name-of-shop']) {
-		// ideally the code should not come here
-		return 'Name of the merchant shop cannot be empty';
-	}
-	if(!fields['email-of-shop']) {
-		// ideally the code should not come here
-		return 'Phone number of the shop cannot be empty';
+function validateFormData(req) {
+
+	req.checkBody('first-name', 'First Name is missing').notEmpty();
+	req.checkBody('phone-number', 'Phone number is missing').notEmpty();
+	req.checkBody('merchant-name', 'Name of merchant is missing').notEmpty();
+	req.checkBody('email-id', 'Email id is invalid').isEmail();
+
+	var errors = req.validationErrors();
+	if (errors) {
+		return errors;
+	} else {
+		return;
 	}
 }
 
@@ -172,24 +182,7 @@ function checkIfUserAlreadyExist(fields) {
 				registerMerchantToDB(fields);
 			}
 	});
-	//console.log(connector);
-	/*connector.eachRow("select * from user_space.user_primary_info where email_id = ? ", [userName], 
-		function(index, row) {
-			if (row["user_active"]) {
-				// do nothing
-				console.log('user already exisit');
-				keyGen.generateHash();
-			} else {
-				console.log('user doest not exist');
-				console.log(fields);
-				registerMerchantToDB(fields);
-			}
-		}, function(err) {
-			console.log("error");
-			console.log(err);
-		});*/
 }
 
-// export the router
 module.exports = router;
 

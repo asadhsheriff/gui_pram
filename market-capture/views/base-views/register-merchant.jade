@@ -12,6 +12,9 @@ html
       if lte IE 8script(src='assets/js/ie/html5shiv.js')
     link(rel='stylesheet', href='css/main.css')
     link(rel='stylesheet', href='css/app-css/register-page.css')
+    //link(rel='stylesheet', href='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')
+    //script(src='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
+
     //
       if lte IE 9link(rel='stylesheet', href='assets/css/ie9.css')
     //
@@ -22,18 +25,18 @@ html
       .inner
         nav
           ul
-            li
-              a(href="#intro" onclick="window.location='../welcome'") Home
             //li
             //  a(href='#intro') Newbiee
             li
-              a(href="#one") Newbiee
+              a(href="#intro") Newbiee
             li
               a(href='#two') Login
+            li
+              a(href="#three" onclick="window.location='../welcome'") Home
     // Wrapper
     #wrapper
       // Intro
-      section#intro.wrapper.style1.fullscreen.fade-up
+      //section#intro.wrapper.style1.fullscreen.fade-up
         .inner
           h1 Capsulle
           p
@@ -42,55 +45,43 @@ html
             li
               a.button.scrolly(href='#one') Learn more
       // One
-      section#one.wrapper.style2.spotlights
+      section#intro.wrapper.style2.fullscreen.spotlights
         section
           //a.image(href='#')
           //  img(src='img/pic01.jpg', alt='', data-position='center center')
           .content
             .inner
-              form#register-for-add-in(method='post',  enctype='multipart/form-data')
-                fieldset
-                  span Give us your Capsulle name
-                  span(style='color: red;') * 
-                  input(type='text', detail_name='get-in-touch', name='name-of-register', size="25")
-                  span Give us your Capsulle name
-                  span(style='color: red;') * 
-                  input(type='text', detail_name='get-in-touch', name='name-of-shop', size="35")
-                  span Give your phone # to contact you
-                  span(style='color: red;') * 
-                  input(type='text', detail_name='get-in-touch', onkeypress='return event.charCode >= 48 && event.charCode <= 57', maxlength='10', name='phone-of-shop', size="18")
-                  span We will give you an Update @
-                  span(style='color: red;') * 
-                  input(type='text', detail_name='get-in-touch', required, name='email-of-shop', size="19")
-                  div(style='margin-top:10px')
-                    input(type="submit" detail_name="get-in-touch-button")
-
-        section
-          a.image(href='#')
-            img(src='img/pic02.jpg', alt='', data-position='top center')
-          .content
-            .inner
-              h2 Why Capsulle? Why not Coupons?
-              p
-                | They show up on your mobile phone when you needed it the most.  One good example is they show up at your breakfast, lunch and dinner times to let you know about a deal available in your favorite nearby restaurant. 
-                br
-                |   With a single tap, you can find your friends using the Capsulle and also connect to a community sharing Capsulles. You don't have to take the pain of deleting the expired Capsulle, it just won't show up after expiration.
-              ul.actions
-                li
-                  a.button(href='demo.html') learn more
-        //
-          <a href="#" class="image"><img src="images/pic03.jpg" alt="" data-position="25% 25%" /></a>
-          <div class="content">
-          <div class="inner">
-          <h2>Ultricies aliquam</h2>
-          <p>Phasellus convallis elit id ullamcorper pulvinar. Duis aliquam turpis mauris, eu ultricies erat malesuada quis. Aliquam dapibus.</p>
-          <ul class="actions">
-          <li><a href="#" class="button">Learn more</a></li>
-          </ul>
-          </div>
-          </div>
-          </section>
-      // Two
+              section
+                form#register-for-add-in( method='post')
+                  fieldset
+                    div
+                      span First Name
+                      span(style='color: red;') * 
+                      input(type='text', detail_name='get-in-touch', placeholder='First Name' ,name='first-name', size="40")
+                    div
+                      span Last Name
+                      input(type='text', detail_name='get-in-touch', placeholder='Last Name', name='last-name', size="40")
+                    div
+                      span Merchant Name
+                      span(style='color: red;') * 
+                      input(type='text', detail_name='get-in-touch', placeholder='Merchant Name', name='merchant-name', size="40")
+                    div
+                      span Contact phone number
+                      span(style='color: red;') * 
+                      input(type='text', detail_name='get-in-touch', placeholder='Contact phone number', onkeypress='return event.charCode >= 48 && event.charCode <= 57', maxlength='10', name='phone-number', size="18")
+                    div
+                      span Email Id
+                      span(style='color: red;') * 
+                      input(type='text', detail_name='get-in-touch', placeholder='Email Id', required, name='email-id', size="19")
+                    div(style='margin-top:10px')
+                      input(type="submit" detail_name="get-in-touch-button")
+                div#message_placholder
+                  div.alert.alert-danger
+                    if errorMessage && errorMessage.length
+                      ul
+                        each item in errorMessage
+                          li(style='color: white')
+                            strong.strong-warning  #{item.msg}
       section#two.wrapper.style3.fade-up
         .inner
           h2 Why choose us
