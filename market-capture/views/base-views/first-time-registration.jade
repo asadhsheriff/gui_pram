@@ -31,9 +31,20 @@ html
               a(href="#intro") Registration
             li
               a(href="#three" onclick="window.location='../welcome'") Home
+    #wrapper
+      // Intro
+      //section#intro.wrapper.style1.fullscreen.fade-up
+        .inner
+          h1 Capsulle
+          p
+            | A place where you can find promotional offers that you need. We are calling these promotional offers, 'Capsulle'
+          ul.actions
+            li
+              a.button.scrolly(href='#one') Learn more
+      // One
       section#intro.wrapper.style2.fullscreen.spotlights
         section
-          a.image(href='#')
+          //a.image(href='#')
             img(src='img/pic01.jpg', alt='', data-position='center center')
           .content
             .inner
@@ -43,19 +54,12 @@ html
                     div
                       span Password
                       span(style='color: red;') * 
-                      input(type='text', detail_name='get-in-touch', placeholder='Password' ,name='pass-first', size="40")
+                      input(type='password', detail_name='get-in-touch', placeholder='Password' ,name='pass-first', size="40")
                     div
                       span Confirm Password
-                      input(type='text', detail_name='get-in-touch', placeholder='Confirm Password', name='pass-confirm-second', size="40")
+                      input(type='password', detail_name='get-in-touch', placeholder='Confirm Password', name='pass-confirm-second', size="40")
                     div(style='margin-top:10px')
-                      input(type="submit" detail_name="get-in-touch-button")
-                div#message_placholder
-                  div.alert.alert-danger
-                    if errorMessage && errorMessage.length
-                      ul
-                        each item in errorMessage
-                          li(style='color: white')
-                            strong.strong-warning  #{item.msg}
+                      input(type="submit", value="Register" detail_name="get-in-touch-button")
     // Footer
     footer#footer.wrapper.style1-alt
       .inner

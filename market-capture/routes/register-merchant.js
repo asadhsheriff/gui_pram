@@ -50,39 +50,50 @@ router.post('/', function(req, res, next) {
 
 function processNewRegisterMerchantRequest(req, res) {
 	console.log('Processing new client request');	
-	var formFields;
+	var formFields = {};
 	async.waterfall([
 		function getFormData(callback) {
-			var formFields = {};
+			// extract form fields from req to local object
 			formFields['email-id'] = req.body['email-id'];
 			formFields['first-name'] = req.body['first-name'];
 			formFields['last-name'] = req.body['last-name'];
 			formFields['merchant-name'] = req.body['merchant-name'];
 			formFields['phone-number'] = req.body['phone-number'];
+			// pass over to next method of water flow
             callback(null, formFields);
         },
         function getUser(fields, callback) {
-            var userName = fields["email-id"];
-            formFields = fields;
             console.log(fields);
-            userModel.getUserAsync(userName, callback);
+            // get user details from user primary info
+            userModel.getUserAsync(fields["email-id"], callback);
         }, function filterOutUser(users, callback) {
         	var isUserExist = false;
+        	var isFirstTime = false;
         	if (users && users.rowLength) {
+        		// ideally there should be only one row for a user here. May be we can have 
+        		// an audit table for the user to track activation and deactivation later
         		for(var iter = 0; iter< users.rowLength; iter++) {
                     if (users.rows[iter]["user_active"]) {
                         isUserExist = true;
                     }
+                    if (users.rows[iter]["is_first_time"]) {
+                        isFirstTime = true;
+                    }                    
             	}
         	}
-        	if (isUserExist) {
-        		return callback('User already exist', null);
+        	if (isUserExist && !isFirstTime) {
+        		return callback('User already exist and has been deactivated!', null);
         	} else {
-        		return callback(null, formFields['email-id']);
+        		return callback(null, formFields['email-id'], isFirstTime);
         	}
         },
-        function generateUniqueHashForUser(userName, callback) {
-            return getHashKey(userName, callback);
+        function generateUniqueHashForUser(userName, isUserFirstTime, callback) {
+        	if (isUserFirstTime) {
+        		// get new hash generated / exising key from DB 
+        		userModel.getHashKeyForExistingUser(userName, callback);
+        	} else {
+            	return getHashKey(userName, callback);
+            }
         }, function createNewUser(hashKey, callback) {
         	formFields['hash-key'] = hashKey;
         	return userModel.createNewUser(formFields, callback);

@@ -69,12 +69,15 @@ app.use(expressValidator({
 var welcomeInitilizer = require('./routes/view-initializer');
 // register page initializations
 var registerInitializer = require('./routes/register-merchant');
+// first time registration module 
+var registerFirstTime = require('./routes/registration-process');
 
 var dbConnector = require('./utils/database-connector');
 var connector = dbConnector.getClientConnector();
 // set page links
 app.use(welcomeInitilizer);
 app.use('/register',  registerInitializer);
+app.use('/', registerFirstTime);
 
 // export this to the application kick start js
 module.exports = app;

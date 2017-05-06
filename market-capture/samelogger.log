@@ -530,3 +530,84 @@
 {"level":"info","message":"intialized logger","timestamp":"2016-09-05T11:15:13.106Z"}
 {"level":"info","message":"intialized logger","timestamp":"2016-09-05T11:15:13.110Z"}
 {"level":"error","message":"","timestamp":"2016-09-05T11:15:15.053Z"}
+{"level":"info","message":"intialized logger","timestamp":"2017-02-23T01:49:41.217Z"}
+{"level":"info","message":"intialized logger","timestamp":"2017-02-23T01:49:41.277Z"}
+{"level":"info","message":"intialized logger","timestamp":"2017-02-23T01:49:41.277Z"}
+{"level":"info","message":"intialized logger","timestamp":"2017-02-23T01:49:41.292Z"}
+{"message":"All host(s) tried for query failed. First host tried, 127.0.0.1:9042: Error: connect ECONNREFUSED. See innerErrors.","innerErrors":{"127.0.0.1:9042":{"code":"ECONNREFUSED","errno":"ECONNREFUSED","syscall":"connect"}},"info":"Represents an error when a query cannot be performed because no host is available or could be reached by the driver.","level":"error","timestamp":"2017-02-23T01:49:41.301Z"}
+{"message":"All host(s) tried for query failed. First host tried, 127.0.0.1:9042: Error: connect ECONNREFUSED. See innerErrors.","innerErrors":{"127.0.0.1:9042":{"code":"ECONNREFUSED","errno":"ECONNREFUSED","syscall":"connect"}},"info":"Represents an error when a query cannot be performed because no host is available or could be reached by the driver.","level":"error","timestamp":"2017-02-23T01:49:41.302Z"}
+{"message":"All host(s) tried for query failed. First host tried, 127.0.0.1:9042: Error: connect ECONNREFUSED. See innerErrors.","innerErrors":{"127.0.0.1:9042":{"code":"ECONNREFUSED","errno":"ECONNREFUSED","syscall":"connect"}},"info":"Represents an error when a query cannot be performed because no host is available or could be reached by the driver.","level":"error","timestamp":"2017-02-23T01:49:41.302Z"}
+{"level":"info","message":"intialized logger","timestamp":"2017-02-23T01:59:03.844Z"}
+{"level":"info","message":"intialized logger","timestamp":"2017-02-23T01:59:03.918Z"}
+{"level":"info","message":"intialized logger","timestamp":"2017-02-23T01:59:03.919Z"}
+{"level":"info","message":"intialized logger","timestamp":"2017-02-23T01:59:03.924Z"}
+{"message":"All host(s) tried for query failed. First host tried, 127.0.0.1:9042: Error: connect ECONNREFUSED. See innerErrors.","innerErrors":{"127.0.0.1:9042":{"code":"ECONNREFUSED","errno":"ECONNREFUSED","syscall":"connect"}},"info":"Represents an error when a query cannot be performed because no host is available or could be reached by the driver.","level":"error","timestamp":"2017-02-23T01:59:03.933Z"}
+{"message":"All host(s) tried for query failed. First host tried, 127.0.0.1:9042: Error: connect ECONNREFUSED. See innerErrors.","innerErrors":{"127.0.0.1:9042":{"code":"ECONNREFUSED","errno":"ECONNREFUSED","syscall":"connect"}},"info":"Represents an error when a query cannot be performed because no host is available or could be reached by the driver.","level":"error","timestamp":"2017-02-23T01:59:03.933Z"}
+{"message":"All host(s) tried for query failed. First host tried, 127.0.0.1:9042: Error: connect ECONNREFUSED. See innerErrors.","innerErrors":{"127.0.0.1:9042":{"code":"ECONNREFUSED","errno":"ECONNREFUSED","syscall":"connect"}},"info":"Represents an error when a query cannot be performed because no host is available or could be reached by the driver.","level":"error","timestamp":"2017-02-23T01:59:03.933Z"}
+{"level":"info","message":"intialized logger","timestamp":"2017-03-06T23:16:26.010Z"}
+{"level":"info","message":"intialized logger","timestamp":"2017-03-06T23:16:26.162Z"}
+{"level":"info","message":"intialized logger","timestamp":"2017-03-06T23:16:26.162Z"}
+{"level":"info","message":"intialized logger","timestamp":"2017-03-06T23:16:26.169Z"}
+{"level":"error","message":"","timestamp":"2017-03-06T23:16:26.937Z"}
+{"level":"info","message":"intialized logger","timestamp":"2017-03-07T01:00:59.554Z"}
+{"level":"info","message":"intialized logger","timestamp":"2017-03-07T01:00:59.668Z"}
+{"level":"info","message":"intialized logger","timestamp":"2017-03-07T01:00:59.668Z"}
+{"level":"info","message":"intialized logger","timestamp":"2017-03-07T01:00:59.674Z"}
+{"message":"All host(s) tried for query failed. First host tried, 127.0.0.1:9042: Error: connect ECONNREFUSED. See innerErrors.","innerErrors":{"127.0.0.1:9042":{"code":"ECONNREFUSED","errno":"ECONNREFUSED","syscall":"connect"}},"info":"Represents an error when a query cannot be performed because no host is available or could be reached by the driver.","level":"error","timestamp":"2017-03-07T01:00:59.683Z"}
+{"message":"All host(s) tried for query failed. First host tried, 127.0.0.1:9042: Error: connect ECONNREFUSED. See innerErrors.","innerErrors":{"127.0.0.1:9042":{"code":"ECONNREFUSED","errno":"ECONNREFUSED","syscall":"connect"}},"info":"Represents an error when a query cannot be performed because no host is available or could be reached by the driver.","level":"error","timestamp":"2017-03-07T01:00:59.683Z"}
+{"message":"All host(s) tried for query failed. First host tried, 127.0.0.1:9042: Error: connect ECONNREFUSED. See innerErrors.","innerErrors":{"127.0.0.1:9042":{"code":"ECONNREFUSED","errno":"ECONNREFUSED","syscall":"connect"}},"info":"Represents an error when a query cannot be performed because no host is available or could be reached by the driver.","level":"error","timestamp":"2017-03-07T01:00:59.683Z"}
+{"level":"info","message":"intialized logger","timestamp":"2017-03-07T01:28:57.195Z"}
+{"level":"info","message":"intialized logger","timestamp":"2017-03-07T01:28:57.283Z"}
+{"level":"info","message":"intialized logger","timestamp":"2017-03-07T01:28:57.283Z"}
+{"level":"info","message":"intialized logger","timestamp":"2017-03-07T01:28:57.289Z"}
+{"level":"error","message":"","timestamp":"2017-03-07T01:28:58.210Z"}
+{"level":"info","message":"intialized logger","timestamp":"2017-03-07T01:36:07.993Z"}
+{"level":"info","message":"intialized logger","timestamp":"2017-03-07T01:36:08.058Z"}
+{"level":"info","message":"intialized logger","timestamp":"2017-03-07T01:36:08.058Z"}
+{"level":"info","message":"intialized logger","timestamp":"2017-03-07T01:36:08.067Z"}
+{"level":"error","message":"","timestamp":"2017-03-07T01:36:08.976Z"}
+{"level":"info","message":"intialized logger","timestamp":"2017-03-07T01:36:39.924Z"}
+{"level":"info","message":"intialized logger","timestamp":"2017-03-07T01:36:39.979Z"}
+{"level":"info","message":"intialized logger","timestamp":"2017-03-07T01:36:39.979Z"}
+{"level":"info","message":"intialized logger","timestamp":"2017-03-07T01:36:39.984Z"}
+{"level":"error","message":"","timestamp":"2017-03-07T01:36:40.802Z"}
+{"level":"info","message":"intialized logger","timestamp":"2017-03-07T01:47:10.107Z"}
+{"level":"info","message":"intialized logger","timestamp":"2017-03-07T01:47:10.165Z"}
+{"level":"info","message":"intialized logger","timestamp":"2017-03-07T01:47:10.165Z"}
+{"level":"info","message":"intialized logger","timestamp":"2017-03-07T01:47:10.170Z"}
+{"level":"error","message":"","timestamp":"2017-03-07T01:47:10.966Z"}
+{"level":"info","message":"intialized logger","timestamp":"2017-03-07T01:47:53.454Z"}
+{"level":"info","message":"intialized logger","timestamp":"2017-03-07T01:47:53.509Z"}
+{"level":"info","message":"intialized logger","timestamp":"2017-03-07T01:47:53.509Z"}
+{"level":"info","message":"intialized logger","timestamp":"2017-03-07T01:47:53.515Z"}
+{"level":"error","message":"","timestamp":"2017-03-07T01:47:54.311Z"}
+{"level":"info","message":"intialized logger","timestamp":"2017-03-07T02:05:28.023Z"}
+{"level":"info","message":"intialized logger","timestamp":"2017-03-07T02:05:28.085Z"}
+{"level":"info","message":"intialized logger","timestamp":"2017-03-07T02:05:28.085Z"}
+{"level":"info","message":"intialized logger","timestamp":"2017-03-07T02:05:28.090Z"}
+{"level":"error","message":"","timestamp":"2017-03-07T02:05:30.578Z"}
+{"level":"info","message":"intialized logger","timestamp":"2017-03-07T02:07:16.296Z"}
+{"level":"info","message":"intialized logger","timestamp":"2017-03-07T02:07:16.352Z"}
+{"level":"info","message":"intialized logger","timestamp":"2017-03-07T02:07:16.352Z"}
+{"level":"info","message":"intialized logger","timestamp":"2017-03-07T02:07:16.357Z"}
+{"level":"error","message":"","timestamp":"2017-03-07T02:07:17.389Z"}
+{"level":"info","message":"intialized logger","timestamp":"2017-03-07T02:19:07.441Z"}
+{"level":"info","message":"intialized logger","timestamp":"2017-03-07T02:19:07.506Z"}
+{"level":"info","message":"intialized logger","timestamp":"2017-03-07T02:19:07.506Z"}
+{"level":"info","message":"intialized logger","timestamp":"2017-03-07T02:19:07.511Z"}
+{"level":"error","message":"","timestamp":"2017-03-07T02:19:08.515Z"}
+{"level":"info","message":"intialized logger","timestamp":"2017-03-07T02:23:17.748Z"}
+{"level":"info","message":"intialized logger","timestamp":"2017-03-07T02:23:17.808Z"}
+{"level":"info","message":"intialized logger","timestamp":"2017-03-07T02:23:17.808Z"}
+{"level":"info","message":"intialized logger","timestamp":"2017-03-07T02:23:17.814Z"}
+{"level":"error","message":"","timestamp":"2017-03-07T02:23:28.873Z"}
+{"level":"info","message":"intialized logger","timestamp":"2017-03-07T02:33:58.053Z"}
+{"level":"info","message":"intialized logger","timestamp":"2017-03-07T02:33:58.118Z"}
+{"level":"info","message":"intialized logger","timestamp":"2017-03-07T02:33:58.119Z"}
+{"level":"info","message":"intialized logger","timestamp":"2017-03-07T02:33:58.125Z"}
+{"level":"error","message":"","timestamp":"2017-03-07T02:34:04.388Z"}
+{"level":"info","message":"intialized logger","timestamp":"2017-03-07T02:40:30.221Z"}
+{"level":"info","message":"intialized logger","timestamp":"2017-03-07T02:40:30.275Z"}
+{"level":"info","message":"intialized logger","timestamp":"2017-03-07T02:40:30.275Z"}
+{"level":"info","message":"intialized logger","timestamp":"2017-03-07T02:40:30.280Z"}
+{"level":"error","message":"","timestamp":"2017-03-07T02:40:32.821Z"}

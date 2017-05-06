@@ -10,7 +10,9 @@ var emailValidator = require('email-existence');
 var loggerConf = require('./context-utils/logger-conf');
 var logger = loggerConf.getLogger();
 var async = require('async');
-var BASE_URL = 'http://127.0.0.1:12323/';
+var userModel = require('../models/user-model');
+
+var BASE_URL = 'http://127.0.0.1:12123';
 var mailTypes = {
 	"WELCOME" : "WELCOME"
 };
@@ -132,14 +134,25 @@ function constructMailBody(validatedContents, type) {
 							+ ' and proceed with actual registration. Once the registration is done,'
 							+ ' you could proceed with uploading coupons on your account.<p>'
 							+ '<p></p>'
+							+ '<p style="color: red;">Please note that, this link will be invalidated after 40 mins since the time you registered.</p>'
 							+ '<p></p>'
 							+ '<p>Regards, </p>'
 							+ '<p>Capsulle</p>'
+							+ '<p></p>'
+							+ '<p></p>'
 							+ '<footer> <p>Capsulle, LLC.,</p>'
 							+ '<p> For any further queries write us on capsullehelpcenter@gmail.com.</p><footer>';
 		baseMessageBody.subject = 'Capsulles | Welcome ' + validatedContents['merchant-name']; 
 
 		return baseMessageBody;
+	}
+
+	if (type == 'REREGISTER') {
+		var baseMessageBody = MAIL_BODY;
+
+		baseMessageBody.to = validatedContents['email-id'];
+		baseMessageBody.text = 'Hello ' + validatedContents['first-name'] + ',';
+
 	}
 	return;
 };
@@ -214,6 +227,37 @@ module.exports = {
 				}
 				return callback(null, true);
 		});
+	},
+
+	sendReRegisterMail : function(context, usrCallback) {
+		if (!context || !context["user"] || !context["hash"]) 
+			return usrCallBack('Cannot send a mail to user', null);
+		else {
+			async.waterfall([
+				function getUser(callback) {
+					userModel.getUserAsync(context["user"], callback);
+				}, function constructMailForUser(users, callback) {
+					var isUserExist = false;
+		        	if (users && users.rowLength) {
+		        		// by default there will be only one row so lets take 0th position
+		        		var formFields = {};
+		        		formFields["email-id"] = user;
+		        		formFields["merchant-name"] = users[0]["company_name"];
+		        		formFields["hash-key"] = context["hash"];
+		        		formFields["first-name"] = users[0]["first_name"];
+		        		var mailBody = constructMailBody(formFields, "REREGISTER");
+		        		return sendMailToRegisterar(mailBody, callback);
+		        	} else {
+		        		return callback("Inconsistent state of data", null);
+		        	}
+				}],
+				function(err, result) {
+					if (err) {
+						return callback(err, null);
+					}
+					return callback(null, true);
+				});
+		}
 	},
 
 	sendMail : function(mailBody) {
